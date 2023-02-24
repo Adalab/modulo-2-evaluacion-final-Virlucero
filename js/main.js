@@ -6,6 +6,7 @@ const inputElement = document.querySelector(".js-input");
 const searchButton = document.querySelector(".js-button-search");
 const resetButton = document.querySelector(".js-reset-button");
 const listElement = document.querySelector(".js-list");
+const favouritesElement = document.querySelector(".js-favourites");
 
 // creo funcion manejadora del boton buscar
 function searchHandler(evt) {
@@ -49,5 +50,17 @@ function renderCocktail(cocktailData) {
   liElement.appendChild(h4Title);
   liElement.appendChild(img);
 
+  liElement.addEventListener("click", () => {
+    console.log("anado a favoritos", cocktailData.idDrink);
+
+    // almaceno este elemento si hago click en el
+    localStorage.setItem(cocktailData.strDrink, JSON.stringify(cocktailData));
+
+    // vamos a añadir este elemnto a la lista de favoritos
+    favouritesElement.appendChild(liElement);
+  });
+
   return liElement;
 }
+
+// gi
