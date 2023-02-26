@@ -3,13 +3,14 @@
 // añado variables
 const inputElement = document.querySelector(".js-input");
 const searchButton = document.querySelector(".js-button-search");
-const resetButton = document.querySelector(".js-reset-button");
+const resetButton = document.querySelector(".js-button-reset");
 const listElement = document.querySelector(".js-list");
 const favouritesElementUl = document.querySelector(".js-favourites");
 
 // creo funcion manejadora del boton buscar
-function searchHandler(evt) {
-  evt.preventDefault();
+function searchHandler() {
+  // antes de buscar borro la lista anterior para evitar duplicados
+  listElement.innerHTML = "";
 
   //guardo lo que introduce el usuario (su value)
   let cocktailName = inputElement.value;
@@ -90,10 +91,11 @@ function giveMeLocalStorageData() {
 //creamos funcion para generar favorito y llamamos a la de generar Li y agregamos la X
 function generateFavourite(cocktailData) {
   const clonedLi = generateLi(cocktailData);
+
+  // añadimos la cruz para borrar
   const img = document.createElement("img"); // <img src="" alt="" />
   img.src = "../images/icon-cross.png";
   img.classList.add("cross-img");
-
   img.addEventListener("click", () => {
     // recuperamos los favoritos del storage
     let localData = giveMeLocalStorageData();
@@ -109,6 +111,12 @@ function generateFavourite(cocktailData) {
 
     //borrar elemento de mi lista padre sin refrescar
     favouritesElementUl.removeChild(clonedLi);
+
+    //borramos todos los elementos de la lista
+    listElement.innerHTML = "";
+
+    // volvemos a buscar para recargar la pagina y eliminar la clase de lo anteriormente seleccionado
+    searchHandler();
   });
 
   clonedLi.appendChild(img);
@@ -130,6 +138,11 @@ function checkIfElementExistInStorage(item) {
 // EMPEZAMOS LA LOGICA
 
 searchButton.addEventListener("click", searchHandler);
+
+// al clickar en el reset, borro todos los hijos
+resetButton.addEventListener("click", () => {
+  listElement.innerHTML = "";
+});
 
 //pintamos cocteles favoritos
 const theFavourites = giveMeLocalStorageData();
