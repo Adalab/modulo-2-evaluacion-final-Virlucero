@@ -7,3 +7,64 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.items-selected {
+  border: 1px solid rgb(144, 15, 151);
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+body {
+  background-color: rgb(223, 183, 207);
+}
+
+h1 {
+  color: rgb(42, 164, 164);
+}
+
+.search-box {
+  border: 1px solid rgb(42, 164, 164);
+  padding: 0.3rem;
+}
+
+.btn {
+  background-color: rgb(42, 164, 164);
+  color: white;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 3px;
+}
+
+li {
+  list-style-type: none;
+}
+.style-favourite {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-right: 10px;
+}
+
+.style-list {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cross-img {
+  width: 40px;
+  height: 40px;
+}
+
+.favourite-li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
