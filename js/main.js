@@ -70,7 +70,7 @@ function generateLi(cocktailData) {
   //variable para almacenar direccion de las fotos
   let imageSource = cocktailData.strDrinkThumb;
   if (imageSource === null) {
-    imageSource = "../images/default-cocktel.jpg";
+    imageSource = "./images/default-cocktel.jpg";
   }
   img.src = imageSource;
   img.classList.add("cocktail-img"); //creo clase en CSS porque sale muy grande
@@ -95,7 +95,7 @@ function generateFavourite(cocktailData) {
 
   // añadimos la cruz para borrar
   const img = document.createElement("img"); // <img src="" alt="" />
-  img.src = "../images/icon-cross.png";
+  img.src = "./images/icon-cross.png";
   img.classList.add("cross-img");
   img.addEventListener("click", () => {
     // recuperamos los favoritos del storage
