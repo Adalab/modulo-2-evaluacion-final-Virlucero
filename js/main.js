@@ -6,6 +6,7 @@ const searchButton = document.querySelector(".js-button-search");
 const resetButton = document.querySelector(".js-button-reset");
 const listElement = document.querySelector(".js-list");
 const favouritesElementUl = document.querySelector(".js-favourites");
+const btnDeleteAll = document.querySelector(".js-delete-all");
 
 // creo funcion manejadora del boton buscar
 function searchHandler() {
@@ -142,6 +143,11 @@ searchButton.addEventListener("click", searchHandler);
 // al clickar en el reset, borro todos los hijos
 resetButton.addEventListener("click", () => {
   listElement.innerHTML = "";
+});
+//creo funcion anonima para el boton de delete all fav y borro del local storage
+btnDeleteAll.addEventListener("click", () => {
+  favouritesElementUl.innerHTML = "";
+  localStorage.removeItem("favouritesCocktails");
 });
 
 //pintamos cocteles favoritos
